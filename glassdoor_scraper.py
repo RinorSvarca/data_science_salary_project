@@ -24,7 +24,8 @@ def get_jobs(keyword, num_jobs, verbose, path, slp_time):
     driver = webdriver.Chrome(executable_path=path, options=options)
     driver.set_window_size(1120, 1000)
 
-    url = 'https://www.glassdoor.de/Job/Jobs.htm?sc.generalKeyword=%22"' + keyword + '"%22&sc.locationSeoString=san+francisco&locId=1147401&locT=C&locKeyword=San%20Francisco,%20CA&seniorityType=all&applicationType=0&remoteWorkType=0&fromAge=-1&minRating=0.0&minSalary=0&cityId=-1&employerSizes=0&industryId=-1&companyId=-1&sc.keyword=%22data%20scientist%22&includeNoSalaryJobs=true&jobType=all&radius=100&sgocId=-1&countryRedirect=true'
+    url = "https://www.glassdoor.de/Job/san-francisco-"+keyword+"-jobs-SRCH_IL.0,13_IC1147401_KO14,28.htm"
+    #url = 'https://www.glassdoor.de/Job/Jobs.htm?sc.generalKeyword=%22"' + keyword + '"%22&sc.locationSeoString=san+francisco&locId=1147401&locT=C&locKeyword=San%20Francisco,%20CA&seniorityType=all&applicationType=0&remoteWorkType=0&fromAge=-1&minRating=0.0&minSalary=0&cityId=-1&employerSizes=0&industryId=-1&companyId=-1&sc.keyword=%22data%20scientist%22&includeNoSalaryJobs=true&jobType=all&radius=100&sgocId=-1&countryRedirect=true'
     #https://www.glassdoor.de/Job/Jobs.htm?sc.generalKeyword=%22data+scientist%22&sc.locationSeoString=san+francisco&locId=1147401&locT=C&locKeyword=San%20Francisco,%20CA&seniorityType=all&applicationType=0&remoteWorkType=0&fromAge=-1&minRating=0.0&minSalary=0&cityId=-1&employerSizes=0&industryId=-1&companyId=-1&sc.keyword=%22data%20scientist%22&includeNoSalaryJobs=true&jobType=all&radius=100&sgocId=-1&countryRedirect=true
     #url = 'https://www.glassdoor.de/Job/ulm-' + keyword + '-jobs-SRCH_IL.0,3_IC2690154_KO4,18.htm'
     driver.get(url)
@@ -85,7 +86,7 @@ def get_jobs(keyword, num_jobs, verbose, path, slp_time):
                     time.sleep(5)
 
             try:
-                salary_estimate = driver.find_element_by_xpath('.//span[@class="gray small salary"]').text
+                salary_estimate = driver.find_element_by_xpath('.//span[@class="css-1uyte9r css-hca4ks e1wijj242"]').text
             except NoSuchElementException:
                 salary_estimate = -1 #You need to set a "not found value. It's important."
             
