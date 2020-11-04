@@ -2,7 +2,7 @@
 """
 Created on Fri Oct 16 01:19:34 2020
 
-@author: rinor
+@author: Rinor
 """
 
 import glassdoor_scraper as gs
